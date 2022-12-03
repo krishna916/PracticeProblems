@@ -1,7 +1,7 @@
 package com.krishnamurti.ztm_problems;
 
 /**
- *  <b><a href="https://leetcode.com/problems/container-with-most-water/>Problem Statement</a></b>
+ *  <b><a href="https://leetcode.com/problems/container-with-most-water/">Problem Statement</a></b>
  */
 public class ContainerWithMostWater {
 
