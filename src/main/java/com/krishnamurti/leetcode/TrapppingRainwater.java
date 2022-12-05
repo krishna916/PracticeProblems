@@ -10,8 +10,8 @@ public class TrapppingRainwater {
         int trappedWater = 0;
         int maxLeft = 0;
         int maxRight = 0;
-        int pointer1 = 0;
-        int pointer2 = height.length - 1;
+        int pointer1 = 0; // left pointer
+        int pointer2 = height.length - 1; //right pointer
 
         while (pointer1 != pointer2) {
             if(height[pointer1] <= height[pointer2]) {
