@@ -16,16 +16,4 @@ public class BackspaceStringCompareTest {
         String s = "y#fo##f", t = "y#f#o##f";
         Assertions.assertTrue(BackspaceStringCompare.backspaceCompare(s, t));
     }
-
-    @Test
-    void backSpaceStringCompareTest11() {
-        String s = "ab#c", t = "ad#c";
-        Assertions.assertTrue(BackspaceStringCompare.backSpaceCompareOptimal(s, t));
-    }
-
-    @Test
-    void backSpaceStringCompareTest12() {
-        String s = "y#fo##f", t = "y#f#o##f";
-        Assertions.assertTrue(BackspaceStringCompare.backSpaceCompareOptimal(s, t));
-    }
 }
