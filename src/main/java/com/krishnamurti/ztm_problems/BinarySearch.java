@@ -114,4 +114,37 @@ public class BinarySearch {
         return result;
     }
 
+    public static int searchInsert(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length -1;
+        int m = -1;
+
+
+        while (left <= right) {
+            m = (int)Math.floor((left + right)/2);
+            if (nums[m] == target) {
+                return m;
+            } else if (nums[m] > target) {
+                right = m - 1;
+            } else {
+                left = m + 1;
+            }
+        }
+        System.out.println("m: " + m);
+        System.out.println("left: " + left);
+        System.out.println("right: " + right);
+//
+//        if (left == 0 && target < nums[left]) {
+//            m = left;
+//        }
+//
+//        if (right == nums.length - 1 && target > nums[right]) {
+//            m = ++right;
+//        }
+//
+//
+//        return m;
+        return left;
+    }
+
 }
