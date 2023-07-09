@@ -42,9 +42,12 @@ public class MergeMultiLevelDoublyLinkedListTest {
         node11.next = node12;
 
         ListNode expected = PopulateUtil.populateLinkedList(new int[] {1,2,3,7,8,11,12,9,10,4,5,6}).head;
-        ObjectMapper mapper = new ObjectMapper();
-        System.out.println(mapper.writeValueAsString(expected));
-        System.out.println(mapper.writeValueAsString(MergeMultiLevelDoublyLinkedList.flatten(node1)));
+        PopulateUtil.printLinkedList(expected);
+//        PopulateUtil.printLinkedList(MergeMultiLevelDoublyLinkedList.flatten(node1));
+        PopulateUtil.printLinkedList(MergeMultiLevelDoublyLinkedList.flatten2(node1));
+//        ObjectMapper mapper = new ObjectMapper();
+//        System.out.println(mapper.writeValueAsString(expected));
+//        System.out.println(mapper.writeValueAsString(MergeMultiLevelDoublyLinkedList.flatten(node1)));
     }
 
 

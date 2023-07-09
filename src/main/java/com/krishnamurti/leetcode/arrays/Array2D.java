@@ -144,6 +144,55 @@ public class Array2D {
         return result;
     }
 
+    // Pascal triangle. get 0-indexed row
+    public static List<Integer> getRow(int rowIndex) {
+//        List<Integer> result = new ArrayList<>();
+//        if (rowIndex == 0) {
+//            result.add(1);
+//            return result;
+//        }
+//        result.add(1);
+//        result.add(1);
+//        if (rowIndex == 1) {
+//            return result;
+//        }
+//
+//        for (int i = 2; i <= rowIndex; i++) {
+//
+//            int col = i - 1;
+//            if (result.size() > col)
+//                result.add(col, 1);
+//            else
+//                result.add(col);
+//
+//
+//            col--;
+//            while (col > 0) {
+//                int value = result.get(col) + result.get(col - 1);
+//                result.set(col, value);
+//                col--;
+//            }
+//            result.set(0, 1);
+//        }
+//        return result;
+
+        List<Integer> row = new ArrayList<Integer>();
+
+        // Add the first element, which is always 1
+        row.add(1);
+
+        // Generate subsequent elements until we reach the desired row index
+        for (int i = 1; i <= rowIndex; i++) {
+            // Calculate the i-th element of the current row using the i-th and (i-1)-th elements of the previous row
+            int element = (int)((long)row.get(i - 1) * (rowIndex - i + 1) / i);
+
+            // Add the element to the current row
+            row.add(element);
+        }
+
+        return row;
+    }
+
 
     public static void main(String[] args) {
         int[][] mat = new int[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
@@ -152,6 +201,9 @@ public class Array2D {
 
 //        System.out.println(spiralOrder(mat));
 //        [1,2,3,6,9,8,7,4,5]
-        System.out.println(generatePascal(5));
+//        System.out.println(generatePascal(5));
+
+
+        System.out.println(getRow(3));
     }
 }

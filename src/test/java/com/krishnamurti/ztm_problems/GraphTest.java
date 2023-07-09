@@ -37,7 +37,7 @@ public class GraphTest {
         graph.add(List.of(6));
         graph.add(List.of(2));
 
-        graph.ad
+
         System.out.println(Graphs.graphsDfs(graph));
 
     }

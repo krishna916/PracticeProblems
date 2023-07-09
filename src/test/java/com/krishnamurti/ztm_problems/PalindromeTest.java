@@ -19,7 +19,7 @@ public class PalindromeTest {
 
     @Test
     void isValidSubPalindromeTest() {
-        String s = "abccdba";
+        String s = "aguokepatgbnvfqmgmlcupuufxoohdfpgjdmysgvhmvffcnqxjjxqncffvmhvgsymdjgpfdhooxfuupuculmgmqfvnbgtapekouga";
         Assertions.assertTrue(Palindrome.isValidSubPalindrome(s));
     }
 }
