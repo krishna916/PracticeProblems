@@ -64,6 +64,14 @@ public class Recursion {
         return binarySearch(arr, mid + 1, right, x);
     }
 
+    public static long fibonacci(long n) {
+        if (n == 0 || n == 1)
+            return 1;
+
+        return fibonacci(n-1) + fibonacci(n-2);
+    }
+
+
 
     public static void main(String[] args) {
 
@@ -76,8 +84,11 @@ public class Recursion {
         // recursive summation
         System.out.println(recursiveSummation(5));
 
+        // recursive binarySearch
         int[] arr = new int[] { -1, 0, 4, 5, 6, 18, 45, 56, 89, 100 };
         System.out.println(binarySearch(arr, 0, arr.length -1, 100));
         System.out.println(binarySearch(arr, 0, arr.length -1, 99));
+
+        System.out.println(fibonacci(10));
     }
 }
