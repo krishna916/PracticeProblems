@@ -1,5 +1,7 @@
 package com.krishnamurti.programmingTechniques;
 
+import java.util.Arrays;
+
 /**
  *  Set of problems solved using recursion.
  *  From the youtube channel of Freecodecamp.
@@ -72,6 +74,52 @@ public class Recursion {
     }
 
 
+    public static void mergeSort(int[] arr, int left, int right) {
+        if (left < right) {
+            int mid = (left + right) / 2;
+
+            // sort left to mid
+            mergeSort(arr, left, mid);
+
+            // sort mid to right
+            mergeSort(arr, mid + 1, right);
+
+            // merge the sorted left and right sub-arrays.
+            merge(arr, left, mid, right);
+        }
+    }
+
+    private static void merge(int[] arr, int left, int mid, int right) {
+        // build a temp array to avoid modifying the original array
+        int[] temp = new int[right - left + 1];
+
+        int i = left;
+        int j = mid + 1;
+        int k = 0;
+
+        // while both the sub-array have values, merge them in sorted order
+        while (i <= mid && j <= right) {
+            if (arr[i] <= arr[j]) {
+                temp[k++] = arr[i++];
+            } else {
+                temp[k++] = arr[j++];
+            }
+        }
+
+        // add any remaining values in the left sub-array to the result. (happens when right sub-array is finished in previous iteration)
+        while (i <= mid) {
+            temp[k++] = arr[i++];
+        }
+        // add any remaining values in the right sub-array to the result. (happens when left sub-array is finished in first iteration)
+        while (j <= right) {
+            temp[k++] = arr[j++];
+        }
+
+        for (i = left; i <= right; i++) {
+            arr[i] = temp[i - left];
+        }
+    }
+
 
     public static void main(String[] args) {
 
@@ -89,6 +137,11 @@ public class Recursion {
         System.out.println(binarySearch(arr, 0, arr.length -1, 100));
         System.out.println(binarySearch(arr, 0, arr.length -1, 99));
 
-        System.out.println(fibonacci(10));
+//        System.out.println(fibonacci(10));
+
+        int[] intArray = { 20, 35, -15, 7, 55, 1, -22 };
+
+        mergeSort(intArray, 0, intArray.length - 1);
+        System.out.println(Arrays.toString(intArray));
     }
 }
