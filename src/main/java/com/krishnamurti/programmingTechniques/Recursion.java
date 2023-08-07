@@ -1,5 +1,8 @@
 package com.krishnamurti.programmingTechniques;
 
+import com.krishnamurti.DS.DSUtil.PopulateUtil;
+import com.krishnamurti.DS.ListNode;
+
 import java.util.Arrays;
 
 /**
@@ -120,6 +123,36 @@ public class Recursion {
         }
     }
 
+    public static ListNode recursiveLinkedListReverse(ListNode node) {
+        if (node == null || node.next == null) {
+            return  node;
+        }
+
+        ListNode reversedNode = recursiveLinkedListReverse(node.next);
+        node.next.next = node;
+        node.next = null;
+
+        return reversedNode;
+    }
+
+    public static ListNode mergeSortedList(ListNode A, ListNode B) {
+        if (A == null) {
+            return B;
+        }
+
+        if (B == null) {
+            return A;
+        }
+
+        if (A.val < B.val) {
+            A.next = mergeSortedList(A.next, B);
+            return A;
+        } else {
+            B.next = mergeSortedList(A, B.next);
+            return B;
+        }
+    }
+
 
     public static void main(String[] args) {
 
@@ -143,5 +176,52 @@ public class Recursion {
 
         mergeSort(intArray, 0, intArray.length - 1);
         System.out.println(Arrays.toString(intArray));
+
+        //reverse linked list
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(2);
+        ListNode node3 = new ListNode(3);
+        ListNode node4 = new ListNode(4);
+        ListNode node5 = new ListNode(5);
+
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+
+        PopulateUtil.printLinkedList(node1);
+
+        ListNode reversed = recursiveLinkedListReverse(node1);
+
+        PopulateUtil.printLinkedList(reversed);
+
+
+
+        //merge sorted list
+        ListNode n1 = new ListNode(1);
+        ListNode n2 = new ListNode(5);
+        ListNode n3 = new ListNode(13);
+        ListNode n4 = new ListNode(14);
+        ListNode n5 = new ListNode(550);
+
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        n4.next = n5;
+
+
+        ListNode n_n1 = new ListNode(2);
+        ListNode n_n2 = new ListNode(15);
+        ListNode n_n3 = new ListNode(130);
+        ListNode n_n4 = new ListNode(200);
+        ListNode n_n5 = new ListNode(350);
+
+        n_n1.next = n_n2;
+        n_n2.next = n_n3;
+        n_n3.next = n_n4;
+        n_n4.next = n_n5;
+
+
+        PopulateUtil.printLinkedList(mergeSortedList(n1, n_n1));
     }
 }
