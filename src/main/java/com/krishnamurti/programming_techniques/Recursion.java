@@ -1,5 +1,6 @@
-package com.krishnamurti.programmingTechniques;
+package com.krishnamurti.programming_techniques;
 
+import com.krishnamurti.DS.BinaryNode;
 import com.krishnamurti.DS.DSUtil.PopulateUtil;
 import com.krishnamurti.DS.ListNode;
 
@@ -151,6 +152,19 @@ public class Recursion {
             B.next = mergeSortedList(A, B.next);
             return B;
         }
+    }
+
+    public static BinaryNode insertInBST(BinaryNode node, int data) {
+        if (node == null) {
+            BinaryNode newNode = new BinaryNode(data);
+            return newNode;
+        }
+        if (data <= node.val) {
+            node.left = insertInBST(node.left, data);
+        } else {
+            node.right = insertInBST(node.right, data);
+        }
+
     }
 
 
