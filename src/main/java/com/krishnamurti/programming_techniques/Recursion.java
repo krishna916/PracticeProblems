@@ -164,11 +164,48 @@ public class Recursion {
         } else {
             node.right = insertInBST(node.right, data);
         }
+        return node;
+    }
+
+    public static int[] printNos(int x) {
+        // Write Your Code Here
+        int[] arr = new int[x];
+        getArr(x, arr);
+        return arr;
+    }
+
+    private static void getArr(int x, int[] arr)
+    {
+        if (x == 1) {
+            arr[0] = 1;
+            return;
+        }
+
+        arr[x-1] = x;
+        getArr(x-1, arr);
+    }
+
+    public static int[] printNosR(int x) {
+        // Write Your Code Here
+        int[] arr = new int[x];
+        getArr(x, arr, x);
+        return arr;
+    }
+
+    private static void getArr(int x, int[] arr, int n) {
+        if (x == 1) {
+            arr[arr.length-1] = x;
+            return;
+        }
+        arr[n - x] = x;
+        getArr(x-1, arr, n);
 
     }
 
 
     public static void main(String[] args) {
+
+        System.out.println(Arrays.toString(printNosR(5)));
 
         // String reverse
         System.out.println(stringReverse("hello"));
