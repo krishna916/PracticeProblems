@@ -1,4 +1,4 @@
-package com.krishnamurti.tuf.binarySearch;
+package com.krishnamurti.tuf.binarysearch;
 
 import java.util.Arrays;
 
@@ -8,24 +8,19 @@ public class AggressiveCows {
     public static int aggressiveCows(int[] nums, int k) {
 
         Arrays.sort(nums);
-
         int left = 1; // minimum distance
-
         // max distance will be diff  of max and minimum dist in array
         int right = nums[nums.length - 1] - nums[0];
         int ans = Integer.MIN_VALUE;
         while (left <= right) {
             int mid = left + (right - left)/2;
-
             boolean canBePlaced = canBePlaced(nums, k, mid);
-
             if (canBePlaced) {
                 ans = Math.max(ans, mid);
                 left = mid + 1;
             } else {
                 right = mid - 1;
             }
-
         }
         return ans;
     }
@@ -42,7 +37,6 @@ public class AggressiveCows {
                 return true;
             }
         }
-
         return cowsPlaced >= cows;
     }
 

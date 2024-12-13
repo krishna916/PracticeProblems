@@ -1,6 +1,5 @@
-package com.krishnamurti.tuf.binarySearch;
+package com.krishnamurti.tuf.binarysearch;
 
-import java.util.ArrayList;
 import java.util.List;
 
 // https://takeuforward.org/plus/data-structures-and-algorithm/binary-search/logic-building/find-out-how-many-times-the-array-is-rotated

@@ -1,4 +1,4 @@
-package com.krishnamurti.tuf.binarySearch;
+package com.krishnamurti.tuf.binarysearch;
 
 public class BinarySearch {
 
