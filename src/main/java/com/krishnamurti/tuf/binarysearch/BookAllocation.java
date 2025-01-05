@@ -6,31 +6,23 @@ public class BookAllocation {
         if (m > nums.length) {
             return -1;
         }
-
         int left = Integer.MIN_VALUE;
         int right = 0;
-
         for (int num: nums) {
             left = Math.max (left, num);
             right += num;
         }
         while (left <= right) {
             int pages = left + (right - left)/2;
-
             int noOfStudents = students (nums, pages);
-
             if (noOfStudents > m) {
-
                 left = pages + 1;
             } else {
                 right = pages - 1;
             }
         }
-
         return  left;
     }
-
-
     private static int students(int[] books, int pages) {
         int students = 1;
         int currentPages  = 0;
@@ -42,7 +34,6 @@ public class BookAllocation {
                 currentPages = books[i];
             }
         }
-
         return students;
     }
 
