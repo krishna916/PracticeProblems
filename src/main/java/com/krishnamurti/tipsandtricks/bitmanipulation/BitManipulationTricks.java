@@ -1,4 +1,4 @@
-package com.krishnamurti.tipsandtrics.bitmanipulation;
+package com.krishnamurti.tipsandtricks.bitmanipulation;
 
 public class BitManipulationTricks {
     // 1. Isolate Rightmost Set Bit: x & -x
